@@ -4,36 +4,28 @@ import { useData } from '../../contexts/DataContext/DataContext';
 import Card from '../../componenets/Card/Card';
 import { useAuth } from '../../contexts/AuthContext/AuthContext';
 import { Link } from 'react-router-dom';
-import { type } from '@testing-library/user-event/dist/type';
+import "./Home.css"
 
 const Home = () => {
     const {data, setData} = useData();
     const {authState} = useAuth();
-
-    console.log(authState.studentData)
-    console.log(data)
+  
     useEffect(() => {
-setData({type:"USER", users: authState.studentData})
-setData({type:"GROUP", groups: JSON.parse(localStorage.getItem("groups")) || []})
-setData({type:"INVIT", invite: JSON.parse(localStorage.getItem("invitations")) || []})
 
-localStorage.setItem("users", JSON.stringify(data.users));
-localStorage.setItem("groups", JSON.stringify(data.groups));
-localStorage.setItem("invitations", JSON.stringify(data.invitations));
+const interests = authState.studentData.reduce((acc, user) => {
+    
+    return acc.concat(user.interests)
+},[])
+setData({type:"SET_INTREST", interests: interests})
 
-const getAllInterests = [...new Set(data.users.reduce((acc, user) => {
-    return acc.concat(user.interests);
-}, []))]
-
-setData({type:"SET_INTREST", interests:getAllInterests})
-    },[data.users, data.groups, data.invitations])
+    },[])
     return (
-        <div>
-            <div>
+        <div className='home'>
+            <div className='home-bar'>
             <SearchBar filterText={data.search} setData={setData} />
             <label>
                     Filters:
-                    <select name="Filters" value={data.filter}  onChange={(e) => setData({type:"FILTER", filter: e.target.value})}>
+                    <select name="Filters" className='input' value={data.filter}  onChange={(e) => setData({type:"FILTER", filter: e.target.value})}>
                         <option value="" disabled>Select your Filter</option>
                         {data.filterLists.map((filters) => (
                             <option key={filters} value={filters}>
@@ -42,10 +34,10 @@ setData({type:"SET_INTREST", interests:getAllInterests})
                         ))}
                     </select>
                 </label>
+                <Link to='/groups' ><button className='btn btn-primary-outline'>Move to Groups</button></Link>
             </div>
-            <Link to='/groups'><button>Move to Groups</button></Link>
             <div>
-                <Card search={data.search} filter={data.filter} studentsList={authState.studentData} />
+                <Card search={data.search} filterText={data.filterText} studentsList={authState.studentData} />
             </div>
           
         </div>

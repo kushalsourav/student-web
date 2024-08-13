@@ -7,7 +7,6 @@ function App() {
   return (
     <div className="App">
      <ContextProvider>
-      <h1>Hello world</h1>
       <Main />
      </ContextProvider>
     </div>

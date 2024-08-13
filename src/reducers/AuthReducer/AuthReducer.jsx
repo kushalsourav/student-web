@@ -9,6 +9,8 @@ const AuthReducer = (state, action) => {
           return {...state, login: action.login};
     case "STU_DATA":
             return {...state, studentData: action.stuData};
+    case "ACTIVE_USER":
+            return {...state, activeUser: action.activeuser};
       default:
           return state;
     }

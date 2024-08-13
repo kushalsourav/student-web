@@ -1,0 +1,25 @@
+.home {
+    margin: 40px auto;
+    padding: 40px;
+    width: 85%;
+}
+.home-bar {
+    width: 800px;
+    display: grid;
+    grid-template-columns: 400px auto auto;
+    align-items: center;
+   margin: 0 auto;
+   gap: 30px;
+}
+
+.home-bar > label {
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 22px;
+}
+.home-bar > a > button {
+    font-size: 12px;
+    padding: 10px 14px;
+}

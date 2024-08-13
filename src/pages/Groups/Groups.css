@@ -1,0 +1,81 @@
+.group > h1 {
+    text-align: center;
+    color: var(--color-primary);
+}
+.groups {
+    text-align: center;
+    margin: 0 40px;
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: start;
+}
+.group-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 5rem;
+}
+.group-row-2{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 5rem;
+}
+.group-info {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.group-info > h4 {
+    margin-top: 20px ;
+}
+.group-info > ul {
+    margin: 10px 0 20px 0;
+    padding-inline-start: 16px;
+}
+.group-form {
+    display: grid;
+    grid-template-columns: 70% 20%;
+    width: 800px;
+    margin: 50px auto;
+    align-items: center;
+    gap: 2rem;
+   
+}
+.group-form > button {
+align-self: flex-end;
+}
+.group-invitations {
+    margin-top: 50px;
+    border: 1px solid var(--color-primary);
+    height: 400px;
+    overflow-y: scroll;
+}
+.group-invitations > h3 {
+    border: 1px solid var(--color-primary);
+    padding: 10px 40px;
+    margin: 20px;
+    color: var(--color-primary);
+}
+
+.group-interests {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.group-invit-col {
+    width: 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between ;
+    align-items: center;
+    margin: 20px 0;
+}
+.group-invit-col > button {
+    font-size: 12px;
+}
+
+.group-invitations > button {
+    font-size: 12px;
+    margin: 10px;
+}

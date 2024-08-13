@@ -1,0 +1,14 @@
+.form-box {
+    width: 500px;
+    margin: auto auto;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-box > h2 {
+    color: var(--color-primary);
+}
+
+.form-box > button {
+    margin: 0 40px;
+}

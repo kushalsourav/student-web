@@ -13,7 +13,10 @@ const initalAuthState = {
     password: '',
     confirmpassword: '',
     login : false,
-    studentData : []
+    studentData : [],
+    activeUser: {
+
+    }
 };
 
 
@@ -23,10 +26,11 @@ const AuthContext = createContext();
 const useAuth = () => useContext(AuthContext);
 
 const AuthProvider = ({children}) => {
-
-
+    
     useEffect(() => {
     localStorage.removeItem("students")
+    localStorage.removeItem("groups")
+    localStorage.removeItem("invitations")
     },[])
 
     const [authState, authDispatch] = useReducer(AuthReducer, initalAuthState);
