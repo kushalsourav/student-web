@@ -30,8 +30,9 @@ const Groups = () => {
     const studentsJSON = JSON.parse(localStorage.getItem("students"))
     studentsJSON.map((user, i) => {
       if (user.name === authState.activeUser.name) {
-        user.groups.push(groupData)
-      }
+       return user.groups.push(groupData)
+      } 
+      return user
     })
     localStorage.setItem("students", JSON.stringify(studentsJSON))
 
@@ -62,8 +63,8 @@ const Groups = () => {
 
     const groupsList = JSON.parse(localStorage.getItem("groups"))
     groupsList.map((group) => {
-      if (group.id === groupId) group.interestedUsers.splice(index, 1)
-
+      if (group.id === groupId) return group.interestedUsers.splice(index, 1)
+      return group
     });
     localStorage.setItem("groups", JSON.stringify(groupsList))
   }
@@ -78,8 +79,9 @@ const Groups = () => {
     const studentsJSON = JSON.parse(localStorage.getItem("students"))
     studentsJSON.map((user, i) => {
       if (user.name === authState.activeUser.name) {
-        user.groups.push(groupData)
+        return user.groups.push(groupData)
       }
+      return user
     })
     localStorage.setItem("students", JSON.stringify(studentsJSON))
 
@@ -93,8 +95,9 @@ const Groups = () => {
     const studentsJSON = JSON.parse(localStorage.getItem("students"))
     studentsJSON.map((user, i) => {
       if (user.name === authState.activeUser.name) {
-        user.invitations.splice(index, 1)
+       return user.invitations.splice(index, 1)
       }
+      return user
     })
 
     localStorage.setItem("students", JSON.stringify(studentsJSON))
@@ -113,7 +116,8 @@ const Groups = () => {
     }, 3000)
 
     return () => clearInterval(intervalId);
-  }, [authState])
+   
+  }, [authState, authDispatch])
 
 
   return (

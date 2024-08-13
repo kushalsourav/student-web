@@ -18,7 +18,7 @@ const interests = authState.studentData.reduce((acc, user) => {
 },[])
 setData({type:"SET_INTREST", interests: interests})
 
-    },[])
+    },[authState.studentData, setData])
     return (
         <div className='home'>
             <div className='home-bar'>

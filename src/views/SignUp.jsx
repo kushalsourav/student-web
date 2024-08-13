@@ -45,7 +45,7 @@ const SignUp = () => {
     useEffect(() => {
         const getStudent = localStorage.getItem("students")
         console.log(JSON.parse(getStudent))
-    },[getUserInputs])
+    },[])
     return(
         <div className="form-box">
         <h2>Signup</h2>

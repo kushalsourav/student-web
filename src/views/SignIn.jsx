@@ -1,5 +1,5 @@
 
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import Form from "../componenets/Form/Form";
 import { useAuth } from "../contexts/AuthContext/AuthContext";
 import { useEffect } from "react";
@@ -35,7 +35,7 @@ const SignIn = () => {
       
         const getStudent = localStorage.getItem("students")
         authDispatch({type:"STU_DATA", stuData:JSON.parse(getStudent)})
-    },[])
+    },[authDispatch, data.data])
     return(
         <div>
             <div className="form-box">
